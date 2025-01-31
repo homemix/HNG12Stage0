@@ -9,7 +9,7 @@ This is a project to return basic information, A project for HNG12 stage 0 backe
 
 ## Project setup
 
-- Create and activate virtual environment in your desired folder location. `follow different steps foe windows or linux`
+- Create and activate virtual environment in your desired folder location. `follow different steps for windows or linux`
 - Clone the project from `git clone https://github.com/homemix/HNG12Stage0`
 - Change to root folder `cd HNG12Stage0`
 - Install required packages `pip install -r requirements.txt`
