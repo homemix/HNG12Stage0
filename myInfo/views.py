@@ -8,7 +8,7 @@ class GetInfoView(APIView):
         data = {
             "email": "kenmutati@gmail.com",
             "current_datetime": datetime.now(),
-            "github_url": "https://github.com/homemix"
+            "github_url": "https://github.com/homemix/HNG12Stage0"
         }
         serializer = InfoSerializer(data)
         return Response(serializer.data)
