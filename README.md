@@ -26,3 +26,7 @@ From the GET endpoint this is the sample output.
     "current_datetime": "2025-01-31T03:24:35.099210Z",
     "github_url": "https://github.com/homemix/HNG12Stage0"
 }`
+
+## URL
+ http://hng120.homemixsystems.co.ke/api/info/
+ 
