@@ -10,8 +10,8 @@ def is_prime(n):
         return False
     if n % 2 == 0 and n != 2:
         return False
-    for i in range(3, int(n ** 0.5) + 1, 2):
-        if n % i == 0:
+    for i in range(3, int(abs(n) ** 0.5) + 1, 2):  # Only check odd numbers
+        if abs(n) % i == 0:
             return False
     return True
 
@@ -21,16 +21,18 @@ def is_perfect(n):
     if n < 2:
         return False
     sum_divisors = 1
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
+    for i in range(2, int(abs(n) ** 0.5) + 1):
+        if abs(n) % i == 0:
             sum_divisors += i
-            if i != n // i:
-                sum_divisors += n // i
-    return sum_divisors == n
+            if i != abs(n) // i:
+                sum_divisors += abs(n) // i
+    return sum_divisors == abs(n)
 
 
 def is_armstrong(n):
     """Check if a number is an Armstrong number."""
+    if n < 0:
+        return False
     digits = list(map(int, str(n)))
     power = len(digits)
     return sum(d ** power for d in digits) == n
@@ -57,8 +59,8 @@ def classify_number(request):
 
     number = int(number_param)
 
-    if number < 0:
-        return Response({"number": "alphabet", "error": True}, status=status.HTTP_400_BAD_REQUEST)
+    # if number < 0:
+    #     return Response({"number": "alphabet", "error": True}, status=status.HTTP_400_BAD_REQUEST)
 
     properties = ["odd" if number % 2 else "even"]
     if is_armstrong(number):
