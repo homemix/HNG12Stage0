@@ -8,7 +8,9 @@ def is_prime(n):
     """Check if a number is prime."""
     if n < 2:
         return False
-    for i in range(2, int(n ** 0.5) + 1):
+    if n % 2 == 0 and n != 2:
+        return False
+    for i in range(3, int(n ** 0.5) + 1, 2):
         if n % i == 0:
             return False
     return True
@@ -16,13 +18,22 @@ def is_prime(n):
 
 def is_perfect(n):
     """Check if a number is a perfect number."""
-    return n == sum(i for i in range(1, n) if n % i == 0)
+    if n < 2:
+        return False
+    sum_divisors = 1
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            sum_divisors += i
+            if i != n // i:
+                sum_divisors += n // i
+    return sum_divisors == n
 
 
 def is_armstrong(n):
     """Check if a number is an Armstrong number."""
-    digits = [int(d) for d in str(n)]
-    return sum(d ** len(digits) for d in digits) == n
+    digits = list(map(int, str(n)))
+    power = len(digits)
+    return sum(d ** power for d in digits) == n
 
 
 def get_fun_fact(n):
@@ -43,8 +54,6 @@ def classify_number(request):
 
     if number_param is None or not number_param.lstrip("-").isdigit():
         return Response({"number": "alphabet", "error": True}, status=status.HTTP_400_BAD_REQUEST)
-
-    number = int(number_param)
 
     number = int(number_param)
 
