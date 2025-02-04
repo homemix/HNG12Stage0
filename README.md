@@ -1,4 +1,4 @@
-# A public API to retrieve Basic Information.
+# Part 1:  A public API to retrieve Basic Information.
 
 This is a project to return basic information, A project for HNG12 stage 0 backend.
 
@@ -30,3 +30,36 @@ From the GET endpoint this is the sample output.
 ## URL
  http://hng120.homemixsystems.co.ke/api/info/
  
+
+# Part 2: Number Classification API
+
+A Django REST API that classifies numbers based on mathematical properties and fetches a fun fact from the Numbers API.
+
+## 🚀 Features
+- Checks if a number is **prime**, **perfect**, or **Armstrong**.
+- Determines **parity** (odd/even).
+- Computes the **sum of digits**.
+- Fetches a **fun fact** from the Numbers API.
+- Returns JSON responses with appropriate **HTTP status codes**.
+
+## Output
+
+`Required JSON Response Format (200 OK):
+{
+    "number": 371,
+    "is_prime": false,
+    "is_perfect": false,
+    "properties": ["armstrong", "odd"],
+    "digit_sum": 11,  // sum of its digits
+    "fun_fact": "371 is an Armstrong number because 3^3 + 7^3 + 1^3 = 371" //gotten from the numbers API
+}
+Required JSON Response Format (400 Bad Request)
+{
+    "number": "alphabet",
+    "error": true
+}
+`
+
+## URL
+
+ http://hng120.homemixsystems.co.ke/api/classify-number?number=371

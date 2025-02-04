@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myInfo.apps.MyinfoConfig',
     'rest_framework',
+    "numbers_api.apps.NumbersApiConfig"
 ]
 
 MIDDLEWARE = [
