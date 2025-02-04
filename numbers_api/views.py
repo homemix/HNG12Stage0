@@ -46,6 +46,11 @@ def classify_number(request):
 
     number = int(number_param)
 
+    number = int(number_param)
+
+    if number < 0:
+        return Response({"number": "alphabet", "error": True}, status=status.HTTP_400_BAD_REQUEST)
+
     properties = ["odd" if number % 2 else "even"]
     if is_armstrong(number):
         properties.append("armstrong")
